@@ -24,6 +24,12 @@ Or install it yourself as:
 
     $ gem install woorld
 
+### Run Tests
+
+The tests are all written using 'minitest' and are located in the test/ directory. Run the tests with the following:
+
+    $ bundle exec rake test
+
 ### Contributing
 
 1. Fork it
