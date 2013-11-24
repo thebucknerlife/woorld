@@ -45,6 +45,13 @@ A simple text-based adventure game.
 
 ## Working with the Source
 
+### Running the Game
+
+    $ bundle install
+    $ bundle exec rake install
+    $ bundle exec woorld
+    ...
+
 ### Run Tests
 
 The tests are all written using 'minitest' and are located in the test/ directory. Run the tests with the following:
