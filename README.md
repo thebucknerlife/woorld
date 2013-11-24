@@ -39,7 +39,7 @@ A simple text-based adventure game.
 - start game
   - greet player
 - wait for player action
-- process reaction
+- process action
   - route action to correct person, place or thing and wait for reaction
   - route reaction to correct person, place, or thing
   - end game with end game reaction
