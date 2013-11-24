@@ -25,25 +25,23 @@ A simple text-based adventure game.
 
 - new game:
   - new world
-    - build world
     - create people
     - create things
     - create places
     - add people to places
     - add things to places
   - new player
-  - build player
     - name
-  - add initial things to player
-  - add player to initial place
+    - add initial things to player
+    - add player to initial place
 - start game
   - greet player
-- wait for player action
-- process action
-  - route action to correct person, place or thing and wait for reaction
-  - route reaction to correct person, place, or thing
-  - end game with end game reaction
-- again, wait for player action ...
+  - wait for player action
+  - process action
+    - route action to correct person, place or thing and wait for reaction
+    - route reaction to correct person, place, or thing
+    - end game with end game reaction
+  - again, wait for player action ...
 
 ## Working with the Source
 
