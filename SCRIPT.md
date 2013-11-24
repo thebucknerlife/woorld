@@ -1,27 +1,27 @@
 # Woorld
 
-## People
+#### People
 
 0. Player
 
-## Places
+#### Places
 
 0. Home
   0. Dining Room
   0. Living Room
 
-## Things
+#### Things
 
 0. Safe
   - Located in *Living Room*
 0. Safe Key
   - Located in *Dining Room*
 
-## Starting Place
+#### Starting Place
 
 The player starts off in the *Living Room*
 
-## Actions/Reactions
+#### Actions/Reactions
 
 - look (action)
   - makes the player aware of their surroundings (reaction)
@@ -36,6 +36,6 @@ The player starts off in the *Living Room*
 - unlock (action)
   - attempt to unlock something using the keys in your inventory (reaction)
 
-## Ultimate Action
+#### Ultimate Action
 
 To win the game you need to unlock the safe.
