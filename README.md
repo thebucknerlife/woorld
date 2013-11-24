@@ -4,7 +4,7 @@ A simpel text-based adventure game.
 
 ## The Basics
 
-### Game Pieces
+### Pieces
 
 - people
 - places
@@ -12,7 +12,7 @@ A simpel text-based adventure game.
 - actions
 - reactions
 
-### Generic Story
+### Story
 
 - You are a person.
 - You start off in a place with some things.
