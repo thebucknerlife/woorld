@@ -40,7 +40,7 @@ Mechanics:
   - add player to initial place
 - start game
   - greet player
-  - wait for player action
+- wait for player action
 - process reaction
   - route action to correct person, place or thing and wait for reaction
   - route reaction to correct person, place, or thing
