@@ -23,8 +23,6 @@ A simpel text-based adventure game.
 
 ### Mechanics
 
-Mechanics:
-
 - new game:
   - new world
     - build world
