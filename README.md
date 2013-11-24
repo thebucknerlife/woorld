@@ -49,30 +49,8 @@ Mechanics:
 
 ## Working with the Source
 
-### Installation
-
-Add this line to your application's Gemfile:
-
-    gem 'woorld'
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install woorld
-
 ### Run Tests
 
 The tests are all written using 'minitest' and are located in the test/ directory. Run the tests with the following:
 
     $ bundle exec rake test
-
-### Contributing
-
-1. Fork it
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
