@@ -43,7 +43,7 @@ A simpel text-based adventure game.
   - route action to correct person, place or thing and wait for reaction
   - route reaction to correct person, place, or thing
   - end game with end game reaction
-- wait for player action ...
+- again, wait for player action ...
 
 ## Working with the Source
 
