@@ -4,9 +4,48 @@ A simpel text-based adventure game.
 
 ## The Basics
 
-Woorld is a text-based world filled with *people* (e.g. the player, other non-player characters), *places* (e.g. towns, buildings, rooms, vehicles), and *things* (wallet, laptop, money). All of these people, places, and things can potentially have actions (e.g. speak with person, enter building, use laptop.) For every action in Woorld there is a reaction (e.g. learn clue, lose money, win game).
+### Game Pieces
 
-You are a person. You start off in a place with some things. There is some action you must ultimately make to finish the game. Many intermediate actions must be carried out before the ultimate action. Certain actions require certain people, places, or things. Meeting these people, finding these things, and travelling to these places make up all of the things the player needs to do between first starting and finally finishing the game.
+- people
+- places
+- things
+- actions
+- reactions
+
+### Generic Story
+
+- You are a person.
+- You start off in a place with some things.
+- There is some action you must ultimately make to cause the win game reaction.
+- Many intermediate actions must be carried out before the ultimate action. 
+- Certain actions require certain people, places, or things.
+- Meeting these people, finding these things, and travelling to these places make up all of the things the player needs to do between first starting and finally finishing the game.
+
+### Mechanics
+
+Mechanics:
+
+- new game:
+  - new world
+    - build world
+    - create people
+    - create things
+    - create places
+    - add people to places
+    - add things to places
+  - new player
+  - build player
+    - name
+  - add initial things to player
+  - add player to initial place
+- start game
+  - greet player
+  - wait for player action
+- process reaction
+  - route action to correct person, place or thing and wait for reaction
+  - route reaction to correct person, place, or thing
+  - end game with end game reaction
+- wait for player action ...
 
 ## Working with the Source
 
