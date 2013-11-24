@@ -6,33 +6,41 @@
 
 #### Places
 
-0. Home
-  0. Dining Room
-  0. Living Room
+0. SafeCo
+  0. Safe Room
+  0. Key Room
 
 #### Things
 
 0. Safe
-  - Located in *Living Room*
+  - Located in *Safe Room*
 0. Safe Key
-  - Located in *Dining Room*
+  - Located in *Key Room*
 
 #### Starting Place
 
-The player starts off in the *Living Room*
+The player starts off in the *Safe Room*
 
 #### Actions/Reactions
 
+##### Player
+
 - look (action)
   - makes the player aware of their surroundings (reaction)
+
+##### Place
+
+- goto (action)
+  - move the plaer from one place to another (reaction)
+
+##### Safe Key
+
 - take (action)
   - remove item from current location (reaction)
   - add item to players inventory (reaction
-- drop (action)
-  - remove item from players inventory (reaction)
-  - add item to current location (reaction)
-- goto (action)
-  - move the plaer from one place to anothe (reaction)r
+
+##### Safe
+
 - unlock (action)
   - attempt to unlock something using the keys in your inventory (reaction)
 
