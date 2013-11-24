@@ -26,7 +26,7 @@ safe_room = {
 }
 
 # greet player
-greeting = "Welcome to the adventure #{player[:name].light_black}..."
+greeting = "Welcome to the adventure #{player[:name].light_red}..."
 puts '='.black * greeting.length
 puts greeting.black
 puts '='.black * greeting.length
@@ -42,6 +42,7 @@ current_place = safe_room
 while not game_over do
   # wait for player action
   puts 'What do you want to do?'.yellow
+  puts '"?" or "help" for a list of available actions'.black
   action = gets.chomp
 
   # react to action
@@ -115,8 +116,8 @@ while not game_over do
     puts
     puts 'Here are the things you can do:'.light_cyan
     puts '  look - describe surroundings'.light_cyan
-    puts '  take <thing> - remove thing from place and add to inventory'.light_cyan
-    puts '  open <thing> - opens an openable thing'.light_cyan
+    puts '  take <thing #> - remove thing from place and add to inventory'.light_cyan
+    puts '  open <thing #> - opens an openable thing'.light_cyan
     puts '  inventory - lists all of the things you have'.light_cyan
     puts '  help or ? - print this message'.light_cyan
     puts
