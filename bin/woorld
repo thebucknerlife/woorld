@@ -16,8 +16,6 @@ class Player
   def get_action
     puts 'What do you want to do?'.yellow
     action = gets.chomp
-    puts
-    action
   end
 end
 
@@ -46,11 +44,18 @@ class Game
       # debugging
       when 'win'
         @game_over = true
+        puts
         puts 'Congratulations! You win!'.green
         puts
       when /help|\?/
+        puts
         puts 'Here are the things you can do:'.cyan
+        puts '  look - describe surroundings'.cyan
         puts '  help or ? - print this message'.cyan
+        puts
+      else
+        puts "#{action} is an invalid action".red
+        puts 'run help or ? for a list of available actions'.light_red
         puts
       end
 
