@@ -12,7 +12,7 @@ A simpel text-based adventure game.
 - actions
 - reactions
 
-### Story
+### Mechanics
 
 - You are a person.
 - You start off in a place with some things.
@@ -21,7 +21,7 @@ A simpel text-based adventure game.
 - Certain actions require certain people, places, or things.
 - Meeting these people, finding these things, and travelling to these places make up all of the things the player needs to do between first starting and finally finishing the game.
 
-### Mechanics
+### Game Loop
 
 - new game:
   - new world
