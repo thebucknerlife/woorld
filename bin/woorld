@@ -1,2 +1,63 @@
 #!/usr/bin/env ruby
 require 'woorld'
+require 'colorize'
+
+class Player
+  def initialize
+    puts 'What is your name:'.yellow
+    @name = gets.chomp
+    puts
+  end
+
+  def name
+    @name
+  end
+
+  def get_action
+    puts 'What do you want to do?'.yellow
+    action = gets.chomp
+    puts
+    action
+  end
+end
+
+class Game
+  def initialize
+    @game_over = false
+    @player = Player.new
+  end
+
+  def title greeting
+    puts '='.blue * greeting.length
+    puts greeting.blue
+    puts '='.blue * greeting.length
+    puts
+  end
+
+  def start
+    title "Welcome to the adventure #{@player.name.yellow}..."
+
+    while not @game_over do
+      # wait for player action
+      action = @player.get_action
+
+      # process action
+      case action
+      # debugging
+      when 'win'
+        @game_over = true
+        puts 'Congratulations! You win!'.green
+        puts
+      when /help|\?/
+        puts 'Here are the things you can do:'.cyan
+        puts '  help or ? - print this message'.cyan
+        puts
+      end
+
+      # process reaction
+    end
+  end
+end
+
+game = Game.new
+game.start
