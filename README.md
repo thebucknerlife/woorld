@@ -16,7 +16,7 @@ A simpel text-based adventure game.
 
 - You are a person.
 - You start off in a place with some things.
-- There is some action you must ultimately make to cause the win game reaction.
+- There is some action you must ultimately carry out that causes the win game reaction.
 - Many intermediate actions must be carried out before the ultimate action. 
 - Certain actions require certain people, places, or things.
 - Meeting these people, finding these things, and travelling to these places make up all of the things the player needs to do between first starting and finally finishing the game.
