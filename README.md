@@ -1,6 +1,6 @@
 # Woorld
 
-A simpel text-based adventure game.
+A simple text-based adventure game.
 
 ## The Basics
 
