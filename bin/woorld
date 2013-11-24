@@ -30,6 +30,8 @@ greeting = "Welcome to the adventure #{player[:name].light_red}..."
 puts '='.black * greeting.length
 puts greeting.black
 puts '='.black * greeting.length
+puts 'To win the game:'.green
+puts 'Open the safe.'.light_green
 puts
 
 # set current_place
@@ -49,7 +51,7 @@ while not game_over do
   case action
   when 'look'
     puts
-    puts "You're in #{current_place[:name]} and you see:".blue
+    puts "You're in \"#{current_place[:name]}\" and you see:".blue
     current_place[:things].each do |thing|
       puts "  (#{thing[:id]}) #{thing[:name]}".light_blue
     end
