@@ -1,68 +1,57 @@
 #!/usr/bin/env ruby
-require 'woorld'
 require 'colorize'
 
-class Player
-  def initialize
-    puts 'What is your name:'.yellow
-    @name = gets.chomp
+game_over = false
+player = {
+  :name => '',
+  :inventory => [],
+}
+puts 'What is your name?'.yellow
+player[:name] = gets.chomp
+
+greeting = "Welcome to the adventure #{player[:name].light_black}..."
+puts '='.black * greeting.length
+puts greeting.black
+puts '='.black * greeting.length
+puts
+
+while not game_over do
+  # wait for player action
+  puts 'What do you want to do?'.yellow
+  action = gets.chomp
+
+  # react to action
+  case action
+  when 'win'
+    game_over = true
+    puts
+    puts 'Congratulations! You win!'.green
+    puts
+  when 'look'
+    puts
+    puts 'You are in a room containing a (1)safe and a (2)key.'.blue
+    puts
+  when /take \d+/
+    thing = action.match(/take (\d+)/).captures.first
+    puts
+    puts "Added (#{thing}) to your inventory".light_green
+    puts
+  when /open \d+/
+    thing = action.match(/open (\d+)/).captures.first
+    puts
+    puts "(#{thing}) requires key".light_red
+    puts
+  when /help|\?/
+    puts
+    puts 'Here are the things you can do:'.light_cyan
+    puts '  look - describe surroundings'.light_cyan
+    puts '  take <thing> - remove thing from place and add to inventory'.light_cyan
+    puts '  open <thing> - opens an openable thing'.light_cyan
+    puts '  help or ? - print this message'.light_cyan
+    puts
+  else
+    puts "#{action} is an invalid action".red
+    puts 'run help or ? for a list of available actions'.light_red
     puts
   end
-
-  def name
-    @name
-  end
-
-  def get_action
-    puts 'What do you want to do?'.yellow
-    action = gets.chomp
-  end
 end
-
-class Game
-  def initialize
-    @game_over = false
-    @player = Player.new
-  end
-
-  def title greeting
-    puts '='.blue * greeting.length
-    puts greeting.blue
-    puts '='.blue * greeting.length
-    puts
-  end
-
-  def start
-    title "Welcome to the adventure #{@player.name.yellow}..."
-
-    while not @game_over do
-      # wait for player action
-      action = @player.get_action
-
-      # process action
-      case action
-      # debugging
-      when 'win'
-        @game_over = true
-        puts
-        puts 'Congratulations! You win!'.green
-        puts
-      when /help|\?/
-        puts
-        puts 'Here are the things you can do:'.cyan
-        puts '  look - describe surroundings'.cyan
-        puts '  help or ? - print this message'.cyan
-        puts
-      else
-        puts "#{action} is an invalid action".red
-        puts 'run help or ? for a list of available actions'.light_red
-        puts
-      end
-
-      # process reaction
-    end
-  end
-end
-
-game = Game.new
-game.start
