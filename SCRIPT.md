@@ -6,9 +6,8 @@
 
 #### Places
 
-0. SafeCo
-  0. Safe Room
-  0. Key Room
+0. Safe Room
+0. Key Room
 
 #### Things
 
