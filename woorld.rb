@@ -129,11 +129,13 @@ until game_over do
       puts
       puts "Place with id #{place_id} does not exist.".red
       puts
+      next
     end
     unless current_place[:paths].find { |path| path[:id] == place_id }
       puts
       puts "Cannot get to place #{place_id} from #{current_place[:name]}.".red
       puts
+      next
     end
     current_place = place
     puts
