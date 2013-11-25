@@ -48,6 +48,5 @@ A simple text-based adventure game.
 ### Running the Game
 
     $ bundle install
-    $ bundle exec rake install
-    $ bundle exec woorld
+    $ ruby woorld.rb
     ...
