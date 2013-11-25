@@ -16,13 +16,21 @@ player[:name] = gets.chomp
 puts
 
 # new place
-safe_room = {
-  :name => 'Really Safe Stuff',
-  :things => [
-    {:id => 1, :name => 'safe', :takeable => false, :openable => true},
-    {:id => 2, :name => 'safe key', :takeable => true, :openable => false},
-  ]
-}
+places = [{
+    :id => 1,
+    :name => 'Safe Room',
+    :things => [
+      {:id => 1, :name => 'safe', :takeable => false, :openable => true},
+    ],
+    :paths => [{:id => 2}]
+  }, {
+    :id => 2,
+    :name => 'Key Room',
+    :things => [
+      {:id => 2, :name => 'safe key', :takeable => true, :openable => false},
+    ],
+    :paths => [{:id => 1}]
+}]
 
 # greet player
 greeting = "Welcome to the adventure #{player[:name].light_red}..."
@@ -34,7 +42,7 @@ puts '- Open the safe.'.light_green
 puts
 
 # set current_place
-current_place = safe_room
+current_place = places[0]
 
 #
 # Game Loop
@@ -53,6 +61,10 @@ while not game_over do
     puts "You're in \"#{current_place[:name]}\" and you see:".blue
     current_place[:things].each do |thing|
       puts "  (#{thing[:id]}) #{thing[:name]}".light_blue
+    end
+    current_place[:paths].each do |path|
+      place = places.find { |place| place[:id] == path[:id] }
+      puts "  (#{place[:id]}) path to #{place[:name]}".light_blue
     end
     puts
   when /take \d+/
@@ -104,6 +116,23 @@ while not game_over do
     puts
     puts 'Congratulations! You have won!'.green
     puts
+  when /goto \d+/
+    place_id = action.match(/goto (\d+)/).captures.first.to_i
+    place = places.find { |place| place[:id] == place_id }
+    unless place
+      puts
+      puts "Place with id #{place_id} does not exist.".red
+      puts
+    end
+    unless current_place[:paths].find { |path| path[:id] == place_id }
+      puts
+      puts "Cannot get to place #{place_id} from #{current_place[:name]}.".red
+      puts
+    end
+    current_place = place
+    puts
+    puts "Now in #{current_place[:name]}".light_green
+    puts
   when 'inventory'
     puts
     if player[:inventory].count == 0
@@ -120,6 +149,7 @@ while not game_over do
     puts '  look - describe surroundings'.light_cyan
     puts '  take <thing #> - remove thing from place and add to inventory'.light_cyan
     puts '  open <thing #> - opens an openable thing'.light_cyan
+    puts '  goto <place #> - moves the player around'.light_cyan
     puts '  inventory - lists all of the things you have'.light_cyan
     puts '  help or ? - print this message'.light_cyan
     puts
