@@ -51,9 +51,3 @@ A simple text-based adventure game.
     $ bundle exec rake install
     $ bundle exec woorld
     ...
-
-### Run Tests
-
-The tests are all written using 'minitest' and are located in the test/ directory. Run the tests with the following:
-
-    $ bundle exec rake test
