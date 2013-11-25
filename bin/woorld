@@ -31,7 +31,7 @@ puts '='.black * greeting.length
 puts greeting.black
 puts '='.black * greeting.length
 puts 'To win the game:'.green
-puts 'Open the safe.'.light_green
+puts '- Open the safe.'.light_green
 puts
 
 # set current_place
@@ -95,14 +95,15 @@ while not game_over do
     end
     unless player[:inventory].find { |thing| thing[:name] == 'safe key' }
       puts
-      puts "(#{thing[:name]}) requires key".light_red
+      puts "(#{thing[:name]}) requires safe key".light_red
       puts
       next
     end
 
+    # end the game
     game_over = true
     puts
-    puts 'Congratulations! You have won the game!'.green
+    puts 'Congratulations! You have won!'.green
     puts
   when 'inventory'
     puts
