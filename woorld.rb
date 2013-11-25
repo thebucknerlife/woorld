@@ -19,16 +19,22 @@ puts
 places = [{
     :id => 1,
     :name => 'Safe Room',
-    :things => [
-      {:id => 1, :name => 'safe', :takeable => false, :openable => true},
-    ],
+    :things => [{
+      :id => 1,
+      :name => 'safe',
+      :takeable => false,
+      :openable => true
+    }],
     :paths => [{:id => 2}]
   }, {
     :id => 2,
     :name => 'Key Room',
-    :things => [
-      {:id => 2, :name => 'safe key', :takeable => true, :openable => false},
-    ],
+    :things => [{
+      :id => 2,
+      :name => 'safe key',
+      :takeable => true,
+      :openable => false
+    }],
     :paths => [{:id => 1}]
 }]
 
@@ -48,7 +54,7 @@ current_place = places[0]
 # Game Loop
 #
 
-while not game_over do
+until game_over do
   # wait for player action
   puts 'What do you want to do?'.yellow
   puts '"?" or "help" for a list of available actions'.black
