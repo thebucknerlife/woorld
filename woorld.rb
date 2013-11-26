@@ -25,7 +25,12 @@ places = [{
       :takeable => false,
       :openable => true
     }],
-    :paths => [{:id => 2}]
+    :paths => [{:id => 3}]
+  }, {
+    :id => 3,
+    :name => 'Hallway',
+    :things => [],
+    :paths => [{:id => 2}, {:id => 1}]
   }, {
     :id => 2,
     :name => 'Key Room',
@@ -35,7 +40,7 @@ places = [{
       :takeable => true,
       :openable => false
     }],
-    :paths => [{:id => 1}]
+    :paths => [{:id => 3}]
 }]
 
 # greet player
