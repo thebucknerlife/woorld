@@ -1,19 +1,95 @@
 require 'colorize'
 
 #
+# Objects
+#
+
+class Player
+
+  def initialize(name)
+    @name = name
+    @inventory = []
+  end
+
+  def users_name
+    @name
+  end
+
+  def add_to_inventory(thing)
+    @inventory << thing
+  end
+
+  def has_in_inventory?(thing)
+    @inventory.find { |obj| obj[:name] == thing }
+  end
+
+  def inventory_empty?
+    @inventory.count == 0
+  end
+
+  def print_inventory_list
+    puts
+    if @inventory.empty?
+      puts 'You have no things.'.red
+    else
+      @inventory.each do |thing|
+        puts "  (#{thing[:id]}) #{thing[:name]}".light_blue
+      end
+    end
+    puts
+  end
+
+end
+
+class Place
+
+  def initialize(things, paths, id, name)
+    @things = things
+    @paths = paths
+    @id = id
+    @name = name
+  end
+
+  def list_things_in_place
+    @things.each do |thing|
+      puts "  (#{thing[:id]}) #{thing[:name]}".light_blue
+    end
+  end
+
+  def list_paths
+    @paths.each do |path|
+      puts "  (#{@id}) path to #{@name}".light_blue
+    end
+  end
+
+end
+
+#
 # Game Properties
 #
 
 game_over = false
 
-# new player
-player = {
-  :name => '',
-  :inventory => [],
-}
-puts 'What is your name?'.yellow
-player[:name] = gets.chomp
-puts
+# new Player object
+puts 'What is your name? (new object)'.yellow
+user_input = gets.chomp
+
+player = Player.new(user_input)
+place1 = Place.new([{
+      :id => 1,
+      :name => 'safe',
+      :takeable => false,
+      :openable => true
+    }], [{:id => 3}], 1, "Safe Room")
+
+place2 = Place.new(nil, [{:id => 3}], 1, "Safe Room")
+
+place3 = Place.new([{
+      :id => 1,
+      :name => 'safe',
+      :takeable => false,
+      :openable => true
+    }], [{:id => 3}], 1, "Safe Room")
 
 # new place
 places = [{
@@ -25,7 +101,6 @@ places = [{
       :takeable => false,
       :openable => true
     }],
-    :paths => [{:id => 3}]
   }, {
     :id => 3,
     :name => 'Hallway',
@@ -44,7 +119,7 @@ places = [{
 }]
 
 # greet player
-greeting = "Welcome to the adventure #{player[:name].light_red}..."
+greeting = "Welcome to the adventure #{player.users_name.light_red}..."
 puts '='.black * greeting.length
 puts greeting.black
 puts '='.black * greeting.length
@@ -70,13 +145,10 @@ until game_over do
   when 'look'
     puts
     puts "You're in \"#{current_place[:name]}\" and you see:".blue
-    current_place[:things].each do |thing|
-      puts "  (#{thing[:id]}) #{thing[:name]}".light_blue
-    end
-    current_place[:paths].each do |path|
-      place = places.find { |place| place[:id] == path[:id] }
-      puts "  (#{place[:id]}) path to #{place[:name]}".light_blue
-    end
+    
+    place.list_things_in_place
+    place.list_paths
+
     puts
   when /take \d+/
     thing_id = action.match(/take (\d+)/).captures.first.to_i
@@ -95,7 +167,8 @@ until game_over do
     end
 
     current_place[:things].delete thing
-    player[:inventory] << thing
+    
+    player.add_to_inventory(thing)
 
     puts
     puts "Added #{thing[:name]} to your inventory".light_green
@@ -115,7 +188,7 @@ until game_over do
       puts
       next
     end
-    unless player[:inventory].find { |thing| thing[:name] == 'safe key' }
+    unless player.has_in_inventory?('safe key')
       puts
       puts "(#{thing[:name]}) requires safe key".light_red
       puts
@@ -147,15 +220,7 @@ until game_over do
     puts "Now in #{current_place[:name]}".light_green
     puts
   when 'inventory'
-    puts
-    if player[:inventory].count == 0
-      puts 'You have no things.'.red
-    else
-      player[:inventory].each do |thing|
-        puts "  (#{thing[:id]}) #{thing[:name]}".light_blue
-      end
-    end
-    puts
+    player.print_inventory_list
   when /help|\?/
     puts
     puts 'Here are the things you can do:'.light_cyan
